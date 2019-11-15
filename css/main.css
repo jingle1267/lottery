@@ -1,0 +1,351 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border: none;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'font1';
+  src: url(./font/font1.otf);
+}
+@font-face {
+  font-family: 'font2';
+  src: url(./font/font2.ttf);
+}
+
+
+.pure-button {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: .16rem;
+  padding: .5em 1em;
+  color: #444;
+  color: rgba(0, 0, 0, .8);
+  border: 0 rgba(0, 0, 0, 0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: .02rem;
+}
+
+.pure-button:focus {
+  outline: 0
+}
+
+.pure-button-hover, .pure-button:hover, .pure-button:focus {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, .05)), to(rgba(0, 0, 0, .1)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, .05) 0, rgba(0, 0, 0, .1));
+  background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .1));
+}
+
+.tools {
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  text-align: center;
+}
+
+.tools .pure-button {
+  display: inline-block;
+  margin: .06rem;
+  padding: .1rem 0;
+  text-align: center;
+  width: .5rem;
+  color: #fff;
+  background-color: #3c4c63;
+  /*box-shadow: 0 2px 8px #66e0e5;*/
+  box-shadow: 0 .02rem .08rem #78d5fb;
+  border-radius: .04rem;
+}
+
+.tools  .ope-btn {
+  width: 1rem;
+  font-weight: bold;
+}
+.tools .select-btn {
+  box-shadow: 0 .02rem .08rem #66e0e5;
+  background-color: #183e78;
+}
+.tools .button-secondary {
+
+}
+.tools .stop-btn {
+  background-color: #32675d;
+}
+.mask {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#main {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.result-btn {
+  position: absolute;
+  right: .4rem;
+  bottom: .5rem;
+}
+
+.result-btn a {
+  color: #fae074;
+  font-size: .18rem;
+  font-family: font2,  PingFang SC, Microsoft Yahei,SimHei,Helvetica, Arial, sans-serif;
+}
+.new-text {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(10deg);
+  width: .22rem;
+  font-size: .28rem;
+  font-weight: bold;
+  font-family: font2,  PingFang SC, Microsoft Yahei,SimHei,Helvetica, Arial, sans-serif;
+  color: #dd3022;
+  text-shadow: 1px 1px 1px white, -1px -1px 1px black;
+  line-height: .32rem;
+  opacity: 0.3;
+}
+
+
+/* 展示面板 */
+div.detail-panel {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  color: #014c8f;
+  border-radius: .05rem;
+  box-shadow: 0 0 3.5rem inset, 0 0 .05rem rgba(100, 156, 225, .5);
+  padding: .2rem;
+  border-left: .01rem solid rgba(100, 156, 225, .5);
+  border-right: .01rem solid rgba(100, 156, 225, .5);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateY(20deg);
+  -webkit-transform: translate(-50%, -50%) rotateY(20deg);
+  display: none;
+}
+div.detail-panel::after {
+  position: absolute;
+  top: -.02rem;
+  right: 0;
+  content: '';
+  height: .02rem;
+  width: 85%;
+  background: -webkit-linear-gradient(left, rgba(100, 156, 225,0) 0%, rgba(100, 156, 225, .7) 55%,rgba(204, 255, 255, 1) 70%,rgba(119, 187, 242, 1) 80%, rgba(170, 245, 255,0) 100%);
+  background: linear-gradient(left, rgba(100, 156, 225,0) 0%, rgba(100, 156, 225, .7) 55%,rgba(204, 255, 255, 1) 70%,rgba(119, 187, 242, 1) 80%, rgba(170, 245, 255,0) 100%);
+  border-radius: .05rem;
+  z-index: 1;
+}
+div.detail-panel::before {
+  position: absolute;
+  bottom: -.02rem;
+  left: 0;
+  content: '';
+  height: .02rem;
+  width: 85%;
+  background: -webkit-linear-gradient(right, rgba(100, 156, 225,0) 0%, rgba(100, 156, 225, .7) 55%,rgba(204, 255, 255, .8) 75%,rgba(119, 187, 242, 1) 80%, rgba(170, 245, 255,0) 100%);
+  background: linear-gradient(right, rgba(100, 156, 225,0) 0%, rgba(100, 156, 225, .7) 55%,rgba(204, 255, 255, .8) 70%,rgba(119, 187, 242, 1) 80%, rgba(170, 245, 255,0) 100%);
+  border-radius: .05rem;
+  z-index: 1;
+}
+div.detail-panel .panel-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 5.5rem;
+  min-height: 2rem;
+}
+div.detail-panel .panel-content p{
+  color: #fdfdfe;
+  text-shadow: 0 0 .05rem #07fafe;
+  font-size: .32rem;
+  font-family: font2,  PingFang SC, Microsoft Yahei,SimHei,Helvetica, Arial, sans-serif;
+  line-height: .6rem;
+  -webkit-animation: 1.5s text-twinkle linear infinite;
+  animation: 1.5s text-twinkle linear infinite;
+}
+@-webkit-keyframes text-twinkle {
+  0% {
+    text-shadow: 0 0 .05rem #07fafe;
+  }
+  50% {
+    text-shadow: 0 0 .2rem #07fafe;
+  }
+  100% {
+    text-shadow: 0 0 .05rem #07fafe;
+  }
+}
+
+@-webkit-keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+div.detail-panel .close {
+  position: absolute;
+  right: .1rem;
+  top: .05rem;
+  width: .3rem;
+  height: .3rem;
+  text-align: center;
+  line-height: .3rem;
+  color: rgba(255,255,255,.6);
+  font-size: .16rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+}
+div.detail-panel .mark {
+  color: #fe443b;
+  font-weight: bold;
+}
+div.detail-panel .tip {
+  color: #e89d1e;
+  /*color: #9dcc33;*/
+}
+div.detail-panel .scroll {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: scroll 50s linear infinite;
+}
+div.detail-panel  .scroll:hover {
+  animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes scroll {
+  0%   { text-indent: .1rem }
+  100% { text-indent: -105em }
+}
