@@ -9,7 +9,7 @@
 	var createHTML = function () {
 		var html = ['<ul>']
 		// member = member.slice(0, 120)
-		// todo 修改为从 localstorage 中取数据
+		// 从 localstorage 中取数据
         var localMembers = JSON.parse(window.localStorage['members'] || '{}');
 
         console.log('localMembers.length ', localMembers.length);
