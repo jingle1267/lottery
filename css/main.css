@@ -117,6 +117,21 @@ button, html input[type=button], input[type=reset], input[type=submit] {
   transition: all 1s;
 }
 
+.reset-btn {
+  position: absolute;
+  right: .4rem;
+  top: .5rem;
+  background-color: transparent;
+  color: red;
+  size: 1rem;
+}
+
+.members-btn {
+  position: absolute;
+  left: .4rem;
+  bottom: .5rem;
+}
+
 .result-btn {
   position: absolute;
   right: .4rem;
@@ -134,13 +149,13 @@ button, html input[type=button], input[type=reset], input[type=submit] {
   left: 50%;
   transform: translate(-50%, -50%) rotate(10deg);
   width: .22rem;
-  font-size: .28rem;
+  font-size: .4rem;
   font-weight: bold;
   font-family: font2,  PingFang SC, Microsoft Yahei,SimHei,Helvetica, Arial, sans-serif;
   color: #dd3022;
   text-shadow: 1px 1px 1px white, -1px -1px 1px black;
-  line-height: .32rem;
-  opacity: 0.3;
+  line-height: .5rem;
+  opacity: 0.4;
 }
 
 

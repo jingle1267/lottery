@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="screen-orientation" content="portrait">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <title>获奖名单</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/wall.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/result.css">
+    <link rel="stylesheet" type="text/css" href="css/members.css">
+</head>
+<body>
+
+<div id="main" class="wall">
+    <div class="member-title">录入信息</div>
+    <div class="member-list">
+        <textarea class="text-area" id="textarea" cols="50" rows="15">{{results_str}}</textarea>
+        <button class="pure-button ope-btn button-warning" @click="submit">确认</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/adaptive.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#main',
+        data: {
+            results_str: ''
+        },
+        mounted() {
+            var localMembers = JSON.parse(window.localStorage['members'] || '{}');
+            var results_str = '';
+            Object.keys(localMembers).forEach(function (key) {
+                console.log('key', localMembers[key]);
+                results_str += localMembers[key].name + ',' + localMembers[key].phone;
+                results_str += '\n'
+            })
+            this.results_str = results_str;
+        },
+        methods: {
+            submit: function () {
+                if (confirm('确认数据没问题了吗？')) {
+                    localStorage.clear();
+                    location.reload(true);
+                    var input_members = document.getElementById("textarea").value.split('\n');
+                    var member_arr = [];
+                    // console.log('textarea ', input_members);
+                    // console.log('input_members ', input_members.split('\n'));
+                    console.log(input_members.length);
+                    Object.keys(input_members).forEach(function (key) {
+                        // console.log('key ', input_members[key]);
+                        key_name_arr = input_members[key].split(',');
+                        if (key_name_arr && key_name_arr.length >= 2) {
+                            let json = {};
+                            json.name = key_name_arr[0];
+                            json.phone = key_name_arr[1];
+                            member_arr.push(json)
+                        }
+                    });
+                    console.log('member_arr ', JSON.stringify(member_arr))
+                    localStorage.setItem('members', JSON.stringify(member_arr))
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

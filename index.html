@@ -12,11 +12,14 @@
 </head>
 <body>
 <div id="main" class="wall">
-    <div class="new-text">公平公正公开</div>
+    <div class="new-text">公平  公正</div>
 </div>
 <div id="operateBox">
+    <div class="members-btn">
+        <a href="./members.html" target="_blank">录入数据</a>
+    </div>
     <div class="result-btn">
-        <a href="./result.html" target="_blank">获奖名单</a>
+        <a href="./result.html" target="_blank" style="font-size: .3rem">获奖名单</a>
     </div>
     <div id="result" class="detail-panel">
         <span class="close" @click="closeResultPannel">X</span>
@@ -41,8 +44,8 @@
                 v-text="running?'停!':'开始'"
         >
         </button>
-        <button class="pure-button ope-btn button-warning" @click="reset">重置</button>
     </div>
+    <button class="reset-btn" @click="reset">重置</button>
 </div>
 <script type="text/javascript" src="js/zepto.js"></script>
 <script type="text/javascript" src="js/vue.js"></script>

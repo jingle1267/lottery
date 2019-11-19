@@ -8,7 +8,15 @@
 	}
 	var createHTML = function () {
 		var html = ['<ul>']
-		member = member.slice(0, 120)
+		// member = member.slice(0, 120)
+		// todo 修改为从 localstorage 中取数据
+        var localMembers = JSON.parse(window.localStorage['members'] || '{}');
+
+        console.log('localMembers.length ', localMembers.length);
+        if (localMembers.length > 0) {
+        	member = localMembers;
+		}
+
 		member.forEach(function (item, index) {
 			item.index = index
 			var key = getKey(item)
